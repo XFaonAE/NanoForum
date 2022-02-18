@@ -1,0 +1,19 @@
+{
+    "name": "xfaon/nano-forum",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Xfaon\\NanoForum\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "XFaonAE -",
+            "email": "xfaonae@protonmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.3"
+    }
+}
