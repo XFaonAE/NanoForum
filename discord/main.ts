@@ -1,21 +1,25 @@
 import { Client, Message, User } from 'discord.js';
 import fs from 'fs';
+import { aboutHandler } from './commands/about';
 import { pingHandler } from './commands/ping';
 
 const cmdStore = [
     "ping",
     "help",
-    "mod" 
+    "mod",
+    "about",
 ];
 
 const handlers = new Map<string, CallableFunction>();
+
+handlers.set('about', aboutHandler);
 handlers.set('ping', pingHandler);
 
 async function handleCommand(message: Message) {
     const cmd = checkIsCommand(message.content);
     
     if (cmd && handlers.has(cmd)) {
-        
+        handlers.get(cmd)!(message);
     } else if (cmd) {
         try {
             await message.reply({
